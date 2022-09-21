@@ -1,0 +1,151 @@
+/* position: absolute in order to use z-index and push 'body' to the back
+otherwise it was getting over the form input boxes.. */
+body {
+    display: flex;
+    justify-content: center;
+    background: rgb(83, 81, 81);
+    position: relative;
+    z-index: -3;
+}
+
+
+#container {
+    min-height: 800px;
+    height: 800px;
+    width: 1400px;
+    background-color: white;
+    z-index: -2;
+
+    display: grid;
+    grid-template-areas: 'left top1'
+                         'left top1'
+                         'left form1'
+                         'left bottom1';
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 3fr 1fr 3fr 3fr;
+    justify-content: center;
+}
+
+/* fits the full height of 'container' */
+/* we dont want this div to shrink or stretch so we define sizes relative to 'container' which has a fixed size */
+.left {
+    grid-area: left;
+
+    height: 100%;
+    width: 40rem;
+}
+
+/* background image relative to 'left' and takes 100% of its space */
+/* one layer behind in order to lay the odin image over */
+#img-background {
+    /* flex: 0 0 auto; */
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+/* position absolute to be able to overlay,  
+then need to define the position */
+/* using 'opacity' would affect all children, so using rgba instead */
+#div-img-odin {
+    position: absolute;
+    top: 12.8rem;
+    height: 10rem;
+    width: 40rem;
+
+    background-color:rgb(1, 1, 1, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* odin image to take 80% of the height of its parent */
+#img-odin {
+    height: 80%;
+}
+#txt-odin {
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 60px;
+}
+
+.top-section {
+    grid-area: top1;
+    background-color:rgb(245, 241, 241);
+
+    display: flex;
+    align-items: flex-end;
+}
+.txt-top {
+    font-size: 1.4rem;
+
+    margin-left: 3rem;
+    margin-right: 10rem;
+    margin-bottom: 3rem;
+}
+
+
+.form-section {
+    grid-area: form1;
+    position: relative;
+    z-index: 10;
+}
+
+.bottom-section {
+    grid-area: bottom1;
+    background-color:rgb(245, 241, 241);
+
+}
+
+
+#form-section {
+
+}
+
+
+#form-header {
+    margin: 2rem 2rem 0 2rem;
+    font-size: 26px;
+    /* border: 1px solid red; */
+}
+
+#form-container {
+    display: flex;
+    z-index: 0;
+    /* border: 1px solid blue; */
+
+}
+
+
+label {
+    display: block;
+    font-size: 14px;
+}
+
+.div-input {
+    margin: 2rem;
+    /* border: 1px solid red; */
+}
+
+.div-submit {
+    margin: 2rem;
+    /* border: 1px solid red; */
+}
+
+#btn-submit {
+    color: white;
+    background-color: rgb(5, 80, 5);
+    padding: 0.6rem;
+    width: 14rem;
+    border-radius: 10px;
+}
+
+
+input {
+    width: 250px;
+    border: 1px solid black;
+}
+input:not(:placeholder-shown):invalid {
+    border-color: red;
+}
