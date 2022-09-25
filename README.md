@@ -9,6 +9,6 @@ This project is to practice the concepts learned in the Odin Project - Full Stac
 - Git/Github
 
 ## View page
-https://vinnn.github.io/ODIN_signupform/
+https://vinnn.github.io/ODIN_proj01_signupform/
 
 
